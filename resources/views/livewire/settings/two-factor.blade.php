@@ -155,24 +155,24 @@ new class extends Component {
     {
         if ($this->twoFactorEnabled) {
             return [
-                'title' => __('Two-Factor Authentication Enabled'),
-                'description' => __('Two-factor authentication is now enabled. Scan the QR code or enter the setup key in your authenticator app.'),
-                'buttonText' => __('Close'),
+                'title' => __('টু-ফ্যাক্টর অথেনটিকেশন সক্ষম হয়েছে'),
+                'description' => __('আপনার টু-ফ্যাক্টর অথেনটিকেশন সফলভাবে নিষ্ক্রিয় করা হয়েছে।'),
+                'buttonText' => __('বন্ধ করুন'),
             ];
         }
 
         if ($this->showVerificationStep) {
             return [
-                'title' => __('Verify Authentication Code'),
-                'description' => __('Enter the 6-digit code from your authenticator app.'),
-                'buttonText' => __('Continue'),
+                'title' => __('টু-ফ্যাক্টর অথেনটিকেশন যাচাই করুন'),
+                'description' => __('আপনার অথেনটিকেটর অ্যাপ থেকে ৬-সংখ্যার কোডটি প্রবেশ করান।'),
+                'buttonText' => __('কনফার্ম করুন'),
             ];
         }
 
         return [
-            'title' => __('Enable Two-Factor Authentication'),
-            'description' => __('To finish enabling two-factor authentication, scan the QR code or enter the setup key in your authenticator app.'),
-            'buttonText' => __('Continue'),
+            'title' => __('টু-ফ্যাক্টর অথেনটিকেশন সেটআপ করুন'),
+            'description' => __('আপনার অথেনটিকেটর অ্যাপ ব্যবহার করে নিচের QR কোডটি স্ক্যান করুন অথবা ম্যানুয়ালি সেটআপ কী ব্যবহার করুন।'),
+            'buttonText' => __('চালিয়ে যান'),
         ];
     }
 } ?>
@@ -181,18 +181,18 @@ new class extends Component {
     @include('partials.settings-heading')
 
     <x-settings.layout
-        :heading="__('Two Factor Authentication')"
-        :subheading="__('Manage your two-factor authentication settings')"
+        :heading="__('টু-ফ্যাক্টর অথেনটিকেশন')"
+        :subheading="__('আপনার একাউন্টের নিরাপত্তা বাড়ানোর জন্য টু-ফ্যাক্টর অথেনটিকেশন সক্ষম করুন।')"
     >
         <div class="flex flex-col w-full mx-auto space-y-6 text-sm" wire:cloak>
             @if ($twoFactorEnabled)
                 <div class="space-y-4">
                     <div class="flex items-center gap-3">
-                        <flux:badge color="green">{{ __('Enabled') }}</flux:badge>
+                        <flux:badge color="green">{{ __('এনাবেল্ড') }}</flux:badge>
                     </div>
 
                     <flux:text>
-                        {{ __('With two-factor authentication enabled, you will be prompted for a secure, random pin during login, which you can retrieve from the TOTP-supported application on your phone.') }}
+                        {{ __('টু-ফ্যাক্টর এনাবেল্ড থাকলে একটি সিকিউর পিন ছাড়া আপনার একাউন্টে কেউ লগিন করতে পারবে না।') }}
                     </flux:text>
 
                     <livewire:settings.two-factor.recovery-codes :$requiresConfirmation/>
@@ -204,27 +204,28 @@ new class extends Component {
                             icon:variant="outline"
                             wire:click="disable"
                         >
-                            {{ __('Disable 2FA') }}
+                            {{ __('ডিসাবল ২এফএ') }}
                         </flux:button>
                     </div>
                 </div>
             @else
                 <div class="space-y-4">
                     <div class="flex items-center gap-3">
-                        <flux:badge color="red">{{ __('Disabled') }}</flux:badge>
+                        <flux:badge color="red">{{ __('ডিসাবেল্ড') }}</flux:badge>
                     </div>
 
                     <flux:text variant="subtle">
-                        {{ __('When you enable two-factor authentication, you will be prompted for a secure pin during login. This pin can be retrieved from a TOTP-supported application on your phone.') }}
+                        {{ __('এটি যখন আপনি চালু করবেন তখন লগিনের জন্য TOTP সাপোর্টেড এপ্লিকেশন হতে একটা পিন লাগবে।') }}
                     </flux:text>
 
                     <flux:button
                         variant="primary"
+                        class="bg-amber-500 hover:bg-amber-600"
                         icon="shield-check"
                         icon:variant="outline"
                         wire:click="enable"
                     >
-                        {{ __('Enable 2FA') }}
+                        {{ __('এনাবেল ২এফএ') }}
                     </flux:button>
                 </div>
             @endif
@@ -285,7 +286,7 @@ new class extends Component {
                             class="flex-1"
                             wire:click="resetVerification"
                         >
-                            {{ __('Back') }}
+                            {{ __('ফেরত যান') }}
                         </flux:button>
 
                         <flux:button
@@ -294,7 +295,7 @@ new class extends Component {
                             wire:click="confirmTwoFactor"
                             x-bind:disabled="$wire.code.length < 6"
                         >
-                            {{ __('Confirm') }}
+                            {{ __('নিশ্চত করুন') }}
                         </flux:button>
                     </div>
                 </div>
@@ -334,7 +335,7 @@ new class extends Component {
                     <div class="relative flex items-center justify-center w-full">
                         <div class="absolute inset-0 w-full h-px top-1/2 bg-stone-200 dark:bg-stone-600"></div>
                         <span class="relative px-2 text-sm bg-white dark:bg-stone-800 text-stone-600 dark:text-stone-400">
-                            {{ __('or, enter the code manually') }}
+                            {{ __('অথবা, কোডটি ম্যানুয়ালি প্রবেশ করাও') }}
                         </span>
                     </div>
 

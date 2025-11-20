@@ -39,25 +39,25 @@ new class extends Component {
 <section class="w-full">
     @include('partials.settings-heading')
 
-    <x-settings.layout :heading="__('Update password')" :subheading="__('Ensure your account is using a long, random password to stay secure')">
+    <x-settings.layout :heading="__('আপডেট পাসওয়ার্ড')" :subheading="__('আপনার একাউন্টের নিরাপত্তা নিশ্চিত করতে একটি দীর্ঘ, র্যান্ডম পাসওয়ার্ড ব্যবহার করুন।')">
         <form method="POST" wire:submit="updatePassword" class="mt-6 space-y-6">
             <flux:input
                 wire:model="current_password"
-                :label="__('Current password')"
+                :label="__('বর্তমান পাসওয়ার্ড')"
                 type="password"
                 required
                 autocomplete="current-password"
             />
             <flux:input
                 wire:model="password"
-                :label="__('New password')"
+                :label="__('নতুন পাসওয়ার্ড')"
                 type="password"
                 required
                 autocomplete="new-password"
             />
             <flux:input
                 wire:model="password_confirmation"
-                :label="__('Confirm Password')"
+                :label="__('নতুন পাসওয়ার্ড নিশ্চিত করুন')"
                 type="password"
                 required
                 autocomplete="new-password"
@@ -65,13 +65,13 @@ new class extends Component {
 
             <div class="flex items-center gap-4">
                 <div class="flex items-center justify-end">
-                    <flux:button variant="primary" type="submit" class="w-full" data-test="update-password-button">
-                        {{ __('Save') }}
+                    <flux:button variant="primary" type="submit" class="w-full bg-amber-500 hover:bg-amber-600" data-test="update-password-button">
+                        {{ __('সংরক্ষণ করুন') }}
                     </flux:button>
                 </div>
 
                 <x-action-message class="me-3" on="password-updated">
-                    {{ __('Saved.') }}
+                    {{ __('সংরক্ষিত হয়েছে।') }}
                 </x-action-message>
             </div>
         </form>

@@ -51,9 +51,17 @@
       </nav>
 
       <div class="flex items-center gap-3">
-        <a href="{{route('register')}}" class="hidden md:inline-block px-4 py-2 rounded-lg bg-accent text-white text-sm font-medium hover:opacity-95">
-          সাইন আপ
-        </a>
+        @if (Route::has('login'))
+          @auth
+            <a href="{{route('dashboard')}}" class="hidden md:inline-block px-4 py-2 rounded-lg bg-accent text-white text-sm font-medium hover:opacity-95">
+              ড্যাশবোর্ড
+            </a>
+          @else
+          <a href="{{route('login')}}" class="hidden md:inline-block px-4 py-2 rounded-lg bg-accent text-white text-sm font-medium hover:opacity-95">
+            সাইন ইন
+          </a>
+          @endauth
+        @endif
 
         <a href="tel:01317071128" 
         class="px-3 py-2 text-accent flex items-center gap-2">
@@ -83,19 +91,25 @@
       <a href="#schedule" class="block py-2 border-b">সময়সূচি</a>
       <a href="#pricing" class="block py-2 border-b">প্যাকেজ</a>
       <a href="#faq" class="block py-2">প্রশ্নোত্তর</a>
-      <button id="signupBtn2" onclick="window.location='{{ route('register') }}'" class="w-full py-2 rounded-lg bg-accent text-white mt-2">সাইন আপ</button>
+      @if (Route::has('login'))
+        @auth
+          <button id="signupBtn2" onclick="window.location='{{ route('dashboard') }}'" class="w-full py-2 rounded-lg bg-accent text-white mt-2">ড্যাশবোর্ড</button>
+        @else
+          <button id="signupBtn3" onclick="window.location='{{ route('login') }}'" class="w-full py-2 rounded-lg bg-accent text-white mt-2">সাইন ইন</button>
+        @endauth
+      @endif
     </div>
   </header>
 
   {{ $slot }}
 
-<footer class="bg-slate-900 py-8 text-center text-slate-400">
+<footer class="bg-slate-900 py-8 text-center text-slate-300">
     <div class="max-w-6xl mx-auto px-6 space-y-4">
         <div class="flex justify-center gap-6 text-sm">
             <a href="{{ route('privacy') }}" class="hover:text-accent transition-colors">প্রাইভেসি পলিসি</a>
             <a href="{{ route('terms') }}" class="hover:text-accent transition-colors">টার্মস & কন্ডিশন</a>
         </div>
-        <div class="text-sm text-slate-500">
+        <div class="text-sm text-slate-400">
             © ২০২৫ প্রান্ত মজুমদার — সব অধিকার সংরক্ষিত.
         </div>
     </div>

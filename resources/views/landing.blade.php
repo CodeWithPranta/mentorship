@@ -17,7 +17,7 @@
 
         <div class="mt-6 flex flex-col sm:flex-row gap-3">
           <a href="#pricing" class="px-5 py-3 rounded-lg bg-accent text-white font-semibold shadow">
-            এখানে রেজিস্টার করুন
+            প্যাকেজ দেখুন
           </a>
           <a href="#curriculum" class="px-5 py-3 rounded-lg border border-slate-200 text-sm">
             কোর্স সিলেবাস দেখুন
@@ -278,9 +278,9 @@
       </div>
 
       <div class="mt-6 flex justify-center gap-3">
-        <button id="enrollBtn" class="px-6 py-3 rounded-lg bg-accent text-white font-semibold">
-          এখনই রেজিস্টার করুন
-        </button>
+        <a href="{{route('dashboard')}}" class="px-6 py-3 rounded-lg bg-accent text-white font-semibold">
+          বুকিং করুন এখনই
+        </a>
 
         <a href="#faq" class="px-6 py-3 rounded-lg border">আরও জিজ্ঞাসা</a>
       </div>

@@ -53,10 +53,10 @@ new class extends Component {
     <div class="px-6 space-y-2">
         <div class="flex items-center gap-2">
             <flux:icon.lock-closed variant="outline" class="size-4"/>
-            <flux:heading size="lg" level="3">{{ __('2FA Recovery Codes') }}</flux:heading>
+            <flux:heading size="lg" level="3">{{ __('২এফএ রিকাভারি কোড') }}</flux:heading>
         </div>
         <flux:text variant="subtle">
-            {{ __('Recovery codes let you regain access if you lose your 2FA device. Store them in a secure password manager.') }}
+            {{ __('আপনার 2FA ডিভাইস হারিয়ে গেলে পুনরুদ্ধার কোডগুলি আপনাকে অ্যাক্সেস ফিরে পেতে দেয়। এগুলি একটি নিরাপদ পাসওয়ার্ড ম্যানেজারে সংরক্ষণ করুন।') }}
         </flux:text>
     </div>
 
@@ -71,7 +71,7 @@ new class extends Component {
                 aria-expanded="false"
                 aria-controls="recovery-codes-section"
             >
-                {{ __('View Recovery Codes') }}
+                {{ __('রিকাভারি কোড দেখুন') }}
             </flux:button>
 
             <flux:button
@@ -83,7 +83,7 @@ new class extends Component {
                 aria-expanded="true"
                 aria-controls="recovery-codes-section"
             >
-                {{ __('Hide Recovery Codes') }}
+                {{ __('রিকাভারি কোড লুকান') }}
             </flux:button>
 
             @if (filled($recoveryCodes))
@@ -93,7 +93,7 @@ new class extends Component {
                     variant="filled"
                     wire:click="regenerateRecoveryCodes"
                 >
-                    {{ __('Regenerate Codes') }}
+                    {{ __('পুনয়ার কোড জেনারেট করুন') }}
                 </flux:button>
             @endif
         </div>
@@ -127,7 +127,7 @@ new class extends Component {
                         @endforeach
                     </div>
                     <flux:text variant="subtle" class="text-xs">
-                        {{ __('Each recovery code can be used once to access your account and will be removed after use. If you need more, click Regenerate Codes above.') }}
+                        {{ __('প্রতিটি পুনরুদ্ধার কোড আপনার অ্যাকাউন্ট অ্যাক্সেস করার জন্য একবার ব্যবহার করা যেতে পারে এবং ব্যবহারের পরে এটি সরানো হবে। যদি আপনার আরও প্রয়োজন হয়, তাহলে উপরে "কোডগুলি পুনরায় তৈরি করুন" এ ক্লিক করুন।') }}
                     </flux:text>
                 @endif
             </div>
